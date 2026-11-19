@@ -1,0 +1,760 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros | Spartan R.G.P.</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@500;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --rojo: #e50914;
+            --negro: #080808;
+            --gris: #151515;
+            --blanco: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--negro);
+            color: var(--blanco);
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 19px;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #050505;
+            border-bottom: 3px solid var(--rojo);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .marca {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .marca img {
+            width: 82px;
+            height: 82px;
+            object-fit: contain;
+        }
+
+        .marca h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 22px;
+            color: var(--rojo);
+        }
+
+        .marca p {
+            color: #ccc;
+            font-size: 15px;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 11px;
+            padding: 11px 9px;
+            border: 1px solid #333;
+            transition: .3s;
+        }
+
+        nav a:hover,
+        nav a.activo {
+            background: var(--rojo);
+            border-color: var(--rojo);
+        }
+
+        .portada {
+            min-height: 470px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 65px 20px;
+            background:
+                linear-gradient(rgba(0,0,0,.66), rgba(0,0,0,.88)),
+                url('https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=1600&q=85')
+                center 40% / cover;
+            border-bottom: 1px solid #333;
+        }
+
+        .portada-contenido {
+            max-width: 900px;
+        }
+
+        .logo-portada {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin-bottom: 12px;
+        }
+
+        .etiqueta {
+            color: var(--rojo);
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 4px;
+            font-size: 13px;
+        }
+
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(48px, 8vw, 88px);
+            line-height: 1.05;
+            margin: 15px 0;
+            letter-spacing: 2px;
+        }
+
+        h1 span,
+        .titulo-seccion span {
+            color: var(--rojo);
+        }
+
+        .portada p.descripcion {
+            max-width: 720px;
+            margin: 15px auto 25px;
+            color: #eee;
+            font-size: 22px;
+        }
+
+        .boton {
+            display: inline-block;
+            padding: 13px 22px;
+            margin: 5px;
+            background: var(--rojo);
+            color: white;
+            text-decoration: none;
+            border: 1px solid var(--rojo);
+            border-radius: 3px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 12px;
+            transition: .3s;
+        }
+
+        .boton:hover {
+            background: transparent;
+            color: white;
+        }
+
+        .boton-secundario {
+            background: transparent;
+            border-color: #777;
+        }
+
+        .contenedor {
+            width: 90%;
+            max-width: 1150px;
+            margin: 65px auto;
+        }
+
+        .titulo-seccion {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 42px;
+            line-height: 1.2;
+            margin-bottom: 25px;
+            border-left: 5px solid var(--rojo);
+            padding-left: 15px;
+        }
+
+        .introduccion {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .introduccion p {
+            color: #ccc;
+            margin-bottom: 17px;
+        }
+
+        .introduccion strong {
+            color: white;
+        }
+
+        .imagen-principal {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            border: 1px solid #444;
+            border-bottom: 5px solid var(--rojo);
+            border-radius: 5px;
+        }
+
+        .frase {
+            margin-top: 20px;
+            padding: 18px;
+            background: #171717;
+            border-left: 4px solid var(--rojo);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 15px;
+        }
+
+        .valores {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .valor {
+            background: var(--gris);
+            border: 1px solid #303030;
+            border-radius: 6px;
+            padding: 28px 22px;
+            transition: .3s;
+        }
+
+        .valor:hover {
+            border-color: var(--rojo);
+            transform: translateY(-5px);
+        }
+
+        .valor i {
+            font-size: 35px;
+            color: var(--rojo);
+            margin-bottom: 18px;
+        }
+
+        .valor h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        .valor p {
+            color: #ccc;
+        }
+
+        .mision-vision {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 22px;
+        }
+
+        .bloque {
+            background: #121212;
+            padding: 30px;
+            border: 1px solid #333;
+            border-top: 4px solid var(--rojo);
+            border-radius: 5px;
+        }
+
+        .bloque i {
+            font-size: 34px;
+            color: var(--rojo);
+            margin-bottom: 15px;
+        }
+
+        .bloque h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 18px;
+            margin-bottom: 13px;
+        }
+
+        .bloque p {
+            color: #ccc;
+        }
+
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .foto {
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+            background: #151515;
+            border: 1px solid #333;
+        }
+
+        .foto img {
+            display: block;
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            transition: transform .4s;
+        }
+
+        .foto:hover img {
+            transform: scale(1.06);
+        }
+
+        .foto p {
+            padding: 15px;
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 13px;
+        }
+
+        .llamada {
+            text-align: center;
+            padding: 50px 25px;
+            background:
+                linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.9)),
+                url('https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=1400&q=80')
+                center / cover;
+            border-top: 2px solid var(--rojo);
+            border-bottom: 2px solid var(--rojo);
+        }
+
+        .llamada h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(35px, 6vw, 55px);
+            margin-bottom: 12px;
+        }
+
+        .llamada h2 span {
+            color: var(--rojo);
+        }
+
+        .llamada p {
+            color: #ddd;
+            max-width: 700px;
+            margin: 0 auto 20px;
+        }
+
+        footer {
+            background: #050505;
+            text-align: center;
+            padding: 38px 20px;
+        }
+
+        footer h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 35px;
+        }
+
+        footer h2 span {
+            color: var(--rojo);
+        }
+
+        footer p {
+            color: #aaa;
+            font-size: 16px;
+            margin: 7px 0;
+        }
+
+        .volver {
+            display: inline-block;
+            color: white;
+            margin-top: 15px;
+            text-decoration: none;
+            border-bottom: 1px solid var(--rojo);
+            padding-bottom: 4px;
+        }
+
+        @media (max-width: 800px) {
+            .introduccion {
+                grid-template-columns: 1fr;
+            }
+
+            .imagen-principal {
+                height: 320px;
+            }
+
+            .galeria {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 550px) {
+            header {
+                justify-content: center;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            nav a {
+                font-size: 10px;
+            }
+
+            .portada {
+                min-height: 400px;
+            }
+
+            .galeria {
+                grid-template-columns: 1fr;
+            }
+
+            .foto img {
+                height: 240px;
+            }
+
+            .titulo-seccion {
+                font-size: 35px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="marca">
+        <img src="logospartan.jpg" alt="Logo Spartan R.G.P.">
+
+        <div>
+            <h2>SPARTAN R.G.P.</h2>
+            <p>Disciplina · Dedicación · Superación</p>
+        </div>
+    </div>
+
+    <nav>
+    <a href="inicio.html">INICIO</a>
+    <a href="nosotros.html">NOSOTROS</a>
+    <a href="clases.html">CLASES</a>
+    <a href="horarios.html">HORARIOS</a>
+    <a href="requisitos.html">REQUISITOS</a>
+    <a href="galeria.html">GALERÍA</a>
+    <a href="contacto.html">CONTACTO</a>
+    </nav>
+</header>
+
+<!-- PORTADA -->
+
+<section class="portada">
+    <div class="portada-contenido">
+
+        <img class="logo-portada"
+             src="logospartan.jpg"
+             alt="Emblema Spartan">
+
+        <p class="etiqueta">CONOCE A NUESTRO EQUIPO</p>
+
+        <h1>MÁS QUE UN DEPORTE,<br><span>UNA DISCIPLINA</span></h1>
+
+        <p class="descripcion">
+            En Spartan R.G.P. promovemos el aprendizaje del taekwondo,
+            el respeto, la constancia y la superación personal.
+            Cada entrenamiento es una oportunidad para mejorar.
+        </p>
+
+        <a href="#historia" class="boton">
+            <i class="fa-solid fa-shield-halved"></i>
+            CONÓCENOS
+        </a>
+
+        <a href="clases.html" class="boton boton-secundario">
+            <i class="fa-solid fa-hand-fist"></i>
+            NUESTRAS CLASES
+        </a>
+
+    </div>
+</section>
+
+<main>
+
+    <!-- PRESENTACIÓN -->
+
+    <section class="contenedor" id="historia">
+
+        <h2 class="titulo-seccion">
+            ¿QUIÉNES <span>SOMOS?</span>
+        </h2>
+
+        <div class="introduccion">
+
+            <div>
+                <p>
+                    <strong>Spartan R.G.P.</strong> es una academia de taekwondo
+                    ubicada en la ciudad de Oruro, Bolivia. Su actividad se
+                    centra en la formación deportiva mediante el entrenamiento,
+                    la disciplina y el desarrollo de habilidades marciales.
+                </p>
+
+                <p>
+                    El taekwondo es un arte marcial de origen coreano que
+                    combina técnicas de patadas, desplazamientos, defensa,
+                    coordinación y control corporal. También promueve valores
+                    que pueden aplicarse en la vida cotidiana.
+                </p>
+
+                <p>
+                    En Spartan, los estudiantes pueden desarrollar sus
+                    capacidades progresivamente, aprender a respetar a sus
+                    compañeros y trabajar para alcanzar sus objetivos
+                    deportivos.
+                </p>
+
+                <p>
+                    La práctica requiere constancia, paciencia y compromiso.
+                    Cada alumno avanza de acuerdo con su aprendizaje y
+                    preparación.
+                </p>
+
+                <div class="frase">
+                    “La verdadera fuerza también se demuestra con respeto,
+                    disciplina y perseverancia”.
+                </div>
+            </div>
+
+            <div>
+                <img
+                    class="imagen-principal"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmGUBsMh-ea53whGFUKt0IpfTCtIw56hN0HcIVxT2HLKooEQq3UgAtK-h2&s=10"
+                    alt="Deportistas practicando taekwondo">
+            </div>
+
+        </div>
+    </section>
+
+    <!-- MISIÓN Y VISIÓN -->
+
+    <section class="contenedor">
+
+        <h2 class="titulo-seccion">
+            NUESTRO <span>PROPÓSITO</span>
+        </h2>
+
+        <div class="mision-vision">
+
+            <article class="bloque">
+                <i class="fa-solid fa-bullseye"></i>
+
+                <h3>MISIÓN</h3>
+
+                <p>
+                    Promover la práctica del taekwondo mediante el
+                    entrenamiento deportivo, fortaleciendo la disciplina,
+                    el respeto, la responsabilidad y el esfuerzo personal
+                    de los estudiantes.
+                </p>
+            </article>
+
+            <article class="bloque">
+                <i class="fa-solid fa-mountain-sun"></i>
+
+                <h3>VISIÓN</h3>
+
+                <p>
+                    Continuar impulsando el crecimiento deportivo de los
+                    estudiantes, motivándolos a mejorar sus habilidades,
+                    participar en actividades deportivas y representar
+                    con compromiso a su equipo.
+                </p>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- VALORES -->
+
+    <section class="contenedor">
+
+        <h2 class="titulo-seccion">
+            LOS VALORES QUE NOS <span>DEFINEN</span>
+        </h2>
+
+        <div class="valores">
+
+            <article class="valor">
+                <i class="fa-solid fa-shield-halved"></i>
+                <h3>DISCIPLINA</h3>
+                <p>
+                    Cumplir con los entrenamientos, seguir las indicaciones
+                    y trabajar con constancia para mejorar.
+                </p>
+            </article>
+
+            <article class="valor">
+                <i class="fa-solid fa-handshake"></i>
+                <h3>RESPETO</h3>
+                <p>
+                    Tratar correctamente a los instructores, compañeros,
+                    rivales y demás integrantes de la comunidad deportiva.
+                </p>
+            </article>
+
+            <article class="valor">
+                <i class="fa-solid fa-bolt"></i>
+                <h3>PERSEVERANCIA</h3>
+                <p>
+                    Aprender de los errores, superar las dificultades
+                    y seguir avanzando con esfuerzo.
+                </p>
+            </article>
+
+            <article class="valor">
+                <i class="fa-solid fa-people-group"></i>
+                <h3>COMPAÑERISMO</h3>
+                <p>
+                    Apoyarse mutuamente, compartir conocimientos
+                    y construir un ambiente de entrenamiento positivo.
+                </p>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- MODALIDADES -->
+
+    <section class="contenedor">
+
+        <h2 class="titulo-seccion">
+            NUESTRA PASIÓN POR EL <span>TAEKWONDO</span>
+        </h2>
+
+        <div class="introduccion">
+
+            <div>
+                <p>
+                    El taekwondo permite trabajar distintas capacidades
+                    físicas y técnicas. Durante el proceso de aprendizaje,
+                    los estudiantes desarrollan coordinación, equilibrio,
+                    velocidad, flexibilidad y control corporal.
+                </p>
+
+                <p>
+                    Entre las modalidades de esta disciplina se encuentran
+                    el <strong>Kyorugui</strong>, relacionado con el combate
+                    deportivo, y el <strong>Poomsae</strong>, que consiste
+                    en ejecutar secuencias técnicas de movimientos.
+                </p>
+
+                <p>
+                    La preparación debe adaptarse al nivel de cada alumno
+                    y realizarse bajo la orientación de instructores,
+                    respetando las medidas de seguridad.
+                </p>
+
+                <a href="clases.html" class="boton">
+                    CONOCER LAS MODALIDADES
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div>
+                <img
+                    class="imagen-principal"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJK1Oky0GS3sin8rH2c1zzZpB6sYaw4tYFdLY_pnW660eR3f1ZSSyD72s&s=10"
+                    alt="Entrenamiento físico deportivo">
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOTOGRAFÍAS -->
+
+    <section class="contenedor">
+
+        <h2 class="titulo-seccion">
+            EL ESPÍRITU <span>DEPORTIVO</span>
+        </h2>
+
+        <p style="color:#ccc; margin-bottom:25px;">
+            El entrenamiento exige esfuerzo, concentración y dedicación.
+            Estos son ejemplos visuales del ambiente de las artes marciales
+            y del trabajo físico deportivo.
+        </p>
+
+        <div class="galeria">
+
+            <article class="foto">
+                <img
+                    src="https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=800&q=85"
+                    alt="Práctica de artes marciales"
+                    loading="lazy">
+                <p><i class="fa-solid fa-hand-fist"></i> PRÁCTICA Y TÉCNICA</p>
+            </article>
+
+            <article class="foto">
+                <img
+                    src="https://images.unsplash.com/photo-1546483875-ad9014c88eba?auto=format&fit=crop&w=800&q=85"
+                    alt="Preparación física deportiva"
+                    loading="lazy">
+                <p><i class="fa-solid fa-dumbbell"></i> PREPARACIÓN FÍSICA</p>
+            </article>
+
+            <article class="foto">
+                <img
+                    src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=800&q=85"
+                    alt="Entrenamiento y esfuerzo"
+                    loading="lazy">
+                <p><i class="fa-solid fa-fire"></i> ESFUERZO Y SUPERACIÓN</p>
+            </article>
+
+        </div>
+
+        <div style="text-align:center; margin-top:25px;">
+            <a href="galeria.html" class="boton">
+                <i class="fa-solid fa-images"></i>
+                VISITAR GALERÍA
+            </a>
+        </div>
+
+    </section>
+
+    <!-- INVITACIÓN -->
+
+    <section class="llamada">
+
+        <h2>¿ESTÁS LISTO PARA <span>SUPERARTE?</span></h2>
+
+        <p>
+            Conoce nuestras clases, consulta los horarios
+            y descubre cómo comenzar tu camino en el taekwondo.
+        </p>
+
+        <a href="clases.html" class="boton">
+            <i class="fa-solid fa-hand-fist"></i>
+            VER CLASES
+        </a>
+
+        <a href="contacto.html" class="boton boton-secundario">
+            <i class="fa-solid fa-location-dot"></i>
+            CONTACTAR
+        </a>
+
+    </section>
+
+</main>
+
+<footer>
+    <h2>SPARTAN <span>R.G.P.</span></h2>
+
+    <p>Taekwondo · Oruro, Bolivia</p>
+    <p>Disciplina · Respeto · Perseverancia</p>
+
+    <a href="inicio.html" class="volver">
+        <i class="fa-solid fa-arrow-left"></i>
+        VOLVER AL INICIO
+    </a>
+
+    <p style="margin-top:25px; font-size:14px;">
+        © 2026 Spartan R.G.P. | Página informativa
+    </p>
+</footer>
+
+</body>
+</html>

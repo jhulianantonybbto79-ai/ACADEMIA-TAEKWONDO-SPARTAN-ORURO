@@ -1,0 +1,559 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Horarios y Precios | Spartan R.G.P.</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@500;700&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #101010;
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    line-height: 1.5;
+}
+
+header {
+    background: #080808;
+    border-bottom: 3px solid #e50914;
+    padding: 12px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.marca {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.marca img {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+}
+
+.marca h2 {
+    color: #e50914;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 30px;
+    letter-spacing: 2px;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    padding: 10px 8px;
+    transition: .3s;
+}
+
+nav a:hover,
+nav a.activo {
+    background: #e50914;
+}
+
+.portada {
+    text-align: center;
+    padding: 75px 20px;
+    background: linear-gradient(120deg, #300000, #101010 70%, #200000);
+    border-bottom: 1px solid #333;
+}
+
+.etiqueta {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 12px;
+    color: #ff333d;
+    letter-spacing: 4px;
+}
+
+h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 8vw, 82px);
+    letter-spacing: 3px;
+    margin: 12px 0;
+}
+
+h1 span {
+    color: #e50914;
+}
+
+.portada p {
+    font-size: 21px;
+    max-width: 750px;
+    margin: auto;
+    color: #ddd;
+}
+
+main {
+    width: 90%;
+    max-width: 1150px;
+    margin: 50px auto;
+}
+
+.seccion-titulo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.seccion-intro {
+    color: #ccc;
+    font-size: 19px;
+    margin-bottom: 25px;
+}
+
+.aviso {
+    background: #251719;
+    border-left: 4px solid #e50914;
+    padding: 16px 20px;
+    margin: 25px 0 35px;
+    color: #eee;
+    font-size: 17px;
+}
+
+.tabla-contenedor {
+    overflow-x: auto;
+    margin-bottom: 45px;
+}
+
+table {
+    width: 100%;
+    min-width: 650px;
+    border-collapse: collapse;
+    background: #191919;
+}
+
+th {
+    background: #e50914;
+    padding: 16px 12px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 12px;
+}
+
+td {
+    border: 1px solid #353535;
+    padding: 15px 12px;
+    text-align: center;
+    font-size: 18px;
+}
+
+tbody tr:nth-child(even) {
+    background: #222;
+}
+
+.dia {
+    color: #ff454d;
+    font-weight: 700;
+}
+
+.subtitulo {
+    color: #ff454d;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 27px;
+    margin: 25px 0 12px;
+}
+
+.precios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+    margin: 28px 0;
+}
+
+.tarjeta {
+    background: #1b1b1b;
+    border: 1px solid #383838;
+    border-top: 4px solid #e50914;
+    padding: 27px 22px;
+    transition: .3s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-4px);
+    border-color: #e50914;
+}
+
+.tarjeta h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 29px;
+    margin-bottom: 8px;
+}
+
+.precio {
+    color: #ff333d;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 12px 0;
+}
+
+.tarjeta p {
+    font-size: 18px;
+    color: #ddd;
+}
+
+.tarjeta ul {
+    padding-left: 20px;
+    margin-top: 12px;
+    color: #ddd;
+    font-size: 17px;
+}
+
+.destacado {
+    background: #29090b;
+    border: 1px solid #e50914;
+}
+
+.etiqueta-precio {
+    display: inline-block;
+    color: #fff;
+    background: #e50914;
+    padding: 4px 9px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    margin-bottom: 8px;
+}
+
+.dos-columnas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    margin: 25px 0 45px;
+}
+
+.informacion {
+    background: #191919;
+    padding: 25px;
+    border-left: 3px solid #e50914;
+}
+
+.informacion h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: #ff333d;
+    margin-bottom: 10px;
+}
+
+.informacion p,
+.informacion li {
+    font-size: 18px;
+    color: #ddd;
+}
+
+.informacion ul {
+    padding-left: 20px;
+}
+
+.boton {
+    display: inline-block;
+    background: #e50914;
+    color: white;
+    text-decoration: none;
+    padding: 14px 23px;
+    margin: 8px 6px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    transition: .3s;
+}
+
+.boton:hover {
+    background: white;
+    color: #e50914;
+}
+
+.centrado {
+    text-align: center;
+    margin: 50px 0 25px;
+}
+
+.centrado p {
+    color: #ccc;
+    font-size: 19px;
+}
+
+.nota {
+    color: #aaa;
+    font-size: 16px;
+    margin: 30px 0;
+}
+
+footer {
+    background: #080808;
+    border-top: 3px solid #e50914;
+    padding: 25px 15px;
+    text-align: center;
+    color: #aaa;
+    font-size: 16px;
+}
+
+footer strong {
+    color: #e50914;
+}
+
+@media (max-width: 650px) {
+    header {
+        justify-content: center;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    .portada {
+        padding: 50px 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="marca">
+        <img src="logospartan.jpg" alt="Logo Spartan Taekwondo">
+        <h2>SPARTAN R.G.P.</h2>
+    </div>
+
+    <nav>
+    <a href="inicio.html">INICIO</a>
+    <a href="nosotros.html">NOSOTROS</a>
+    <a href="clases.html">CLASES</a>
+    <a href="horarios.html">HORARIOS</a>
+    <a href="requisitos.html">REQUISITOS</a>
+    <a href="galeria.html">GALERÍA</a>
+    <a href="contacto.html">CONTACTO</a>
+    </nav>
+</header>
+
+<section class="portada">
+    <span class="etiqueta">DISCIPLINA · RESPETO · SUPERACIÓN</span>
+    <h1>HORARIOS Y <span>PRECIOS</span></h1>
+    <p>Encuentra el momento adecuado para entrenar, conoce los costos referenciales y comienza tu camino en el Taekwondo.</p>
+</section>
+
+<main>
+
+    <section>
+        <h2 class="seccion-titulo">HORARIOS DE ENTRENAMIENTO</h2>
+        <p class="seccion-intro">
+            Spartan R.G.P. desarrolla actividades de formación en Taekwondo
+            para niños y jóvenes, con práctica técnica y preparación deportiva.
+        </p>
+
+        <div class="aviso">
+            <strong>Horario de atención publicado:</strong>
+            lunes, martes, jueves y viernes, de 15:00 a 20:00.
+            Los bloques específicos por edad que aparecen a continuación
+            son una propuesta para organizar la página y deben confirmarse
+            directamente con la academia.
+        </div>
+
+        <div class="tabla-contenedor">
+            <table>
+                <thead>
+                    <tr>
+                        <th>DÍA</th>
+                        <th>ATENCIÓN PUBLICADA</th>
+                        <th>ACTIVIDAD</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="dia">Lunes</td>
+                        <td>15:00 – 20:00</td>
+                        <td>Entrenamiento de Taekwondo</td>
+                    </tr>
+                    <tr>
+                        <td class="dia">Martes</td>
+                        <td>15:00 – 20:00</td>
+                        <td>Práctica técnica y física</td>
+                    </tr>
+                    <tr>
+                        <td class="dia">Miércoles</td>
+                        <td>15:00 – 20:00</td>
+                        <td>Entrenamiento de Taekwondo</td>
+                    </tr>
+                    <tr>
+                        <td class="dia">Jueves</td>
+                        <td>15:00 – 20:00</td>
+                        <td>Formación y perfeccionamiento</td>
+                    </tr>
+                    <tr>
+                        <td class="dia">Viernes</td>
+                        <td>15:00 – 20:00</td>
+                        <td>Práctica y preparación deportiva</td>
+                    </tr>
+                    <tr>
+                        <td class="dia">Sábado</td>
+                        <td>15:00 – 18:00</td>
+                        <td>Posibles actividades especiales</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="seccion-titulo">PRECIOS REFERENCIALES</h2>
+        <p class="seccion-intro">
+            Una propuesta de costos accesibles en bolivianos para presentar
+            los servicios de una academia deportiva en Oruro.
+        </p>
+
+        <div class="aviso">
+            <strong>Importante:</strong> estos precios son estimaciones para
+            el proyecto académico; no son tarifas oficiales confirmadas de Spartan R.G.P.
+        </div>
+
+        <div class="precios">
+
+            <article class="tarjeta">
+                <h3>INSCRIPCIÓN</h3>
+                <div class="precio">Bs 30</div>
+                <p>Pago propuesto por el registro inicial del alumno.</p>
+                <ul>
+                    <li>Registro de datos personales</li>
+                    <li>Información sobre las clases</li>
+                    <li>Orientación para comenzar</li>
+                </ul>
+            </article>
+
+            <article class="tarjeta destacado">
+                <span class="etiqueta-precio">PLAN MENSUAL</span>
+                <h3>MENSUALIDAD</h3>
+                <div class="precio">Bs 100</div>
+                <p>Propuesta de pago mensual por las clases regulares.</p>
+                <ul>
+                    <li>Entrenamiento programado</li>
+                    <li>Práctica de técnicas básicas</li>
+                    <li>Formación en disciplina y respeto</li>
+                </ul>
+            </article>
+
+            <article class="tarjeta">
+                <h3>PLAN FAMILIAR</h3>
+                <div class="precio">Bs 180</div>
+                <p>Propuesta de mensualidad conjunta para dos hermanos.</p>
+                <ul>
+                    <li>Dos alumnos de la misma familia</li>
+                    <li>Precio conjunto estimado</li>
+                    <li>Sujeto a aceptación de la academia</li>
+                </ul>
+            </article>
+
+        </div>
+    </section>
+
+    <section>
+        <h2 class="seccion-titulo">OTROS GASTOS A CONSIDERAR</h2>
+        <p class="seccion-intro">
+            Algunos materiales o actividades pueden tener un costo adicional,
+            según el nivel y los objetivos de cada deportista.
+        </p>
+
+        <div class="tabla-contenedor">
+            <table>
+                <thead>
+                    <tr>
+                        <th>CONCEPTO</th>
+                        <th>COSTO ESTIMADO</th>
+                        <th>OBSERVACIÓN</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Uniforme (dobok)</td>
+                        <td>Bs 180 – 250</td>
+                        <td>Compra según talla y modelo</td>
+                    </tr>
+                    <tr>
+                        <td>Examen de ascenso</td>
+                        <td>Bs 80 – 150</td>
+                        <td>Estimación por evaluación</td>
+                    </tr>
+                    <tr>
+                        <td>Protecciones deportivas</td>
+                        <td>Bs 150 – 350</td>
+                        <td>Según el equipo requerido</td>
+                    </tr>
+                    <tr>
+                        <td>Inscripción a campeonato</td>
+                        <td>Variable</td>
+                        <td>Depende de la convocatoria</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p class="nota">
+            Los importes de esta sección son aproximados para fines informativos.
+            Los uniformes, protecciones, evaluaciones y campeonatos no deben
+            considerarse incluidos en la mensualidad, salvo confirmación expresa.
+        </p>
+    </section>
+
+    <section>
+        <h2 class="seccion-titulo">¿QUÉ DEBES SABER ANTES DE INSCRIBIRTE?</h2>
+
+        <div class="dos-columnas">
+            <article class="informacion">
+                <h3>PARA COMENZAR</h3>
+                <ul>
+                    <li>Consultar el grupo adecuado para tu edad.</li>
+                    <li>Confirmar los días y horarios disponibles.</li>
+                    <li>Preguntar qué ropa utilizar en las primeras clases.</li>
+                    <li>Consultar los requisitos de inscripción.</li>
+                </ul>
+            </article>
+
+            <article class="informacion">
+                <h3>PARA COMPETIR</h3>
+                <ul>
+                    <li>Consultar la preparación específica.</li>
+                    <li>Conocer las condiciones de participación.</li>
+                    <li>Verificar los costos de cada campeonato.</li>
+                    <li>Consultar sobre evaluaciones y ascensos.</li>
+                </ul>
+            </article>
+        </div>
+    </section>
+
+    <section class="centrado">
+        <h2 class="seccion-titulo">¡EMPIEZA TU CAMINO EN SPARTAN!</h2>
+        <p>Consulta los requisitos y comunícate con la academia para confirmar horarios, cupos y precios vigentes.</p>
+
+        <a class="boton" href="requisitos.html">VER REQUISITOS</a>
+        <a class="boton" href="contacto.html">CONTACTAR A SPARTAN</a>
+        <a class="boton" href="clases.html">CONOCER LAS CLASES</a>
+    </section>
+
+</main>
+
+<footer>
+    <p><strong>SPARTAN R.G.P.</strong> · Taekwondo · Oruro, Bolivia</p>
+    <p>Disciplina para la vida, preparación para superar tus límites.</p>
+</footer>
+
+</body>
+</html>

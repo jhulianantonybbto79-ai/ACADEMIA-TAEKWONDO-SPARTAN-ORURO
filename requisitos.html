@@ -1,0 +1,440 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Requisitos | Spartan R.G.P.</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@500;700&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #101010;
+    color: white;
+    font-family: 'Rajdhani', sans-serif;
+    line-height: 1.5;
+}
+
+header {
+    background: #080808;
+    border-bottom: 3px solid #e50914;
+    padding: 12px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.marca {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.marca img {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+}
+
+.marca h2 {
+    color: #e50914;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 30px;
+    letter-spacing: 2px;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    padding: 10px 8px;
+    transition: .3s;
+}
+
+nav a:hover,
+nav a.activo {
+    background: #e50914;
+}
+
+.portada {
+    text-align: center;
+    padding: 75px 20px;
+    background: linear-gradient(120deg, #300000, #101010 70%, #200000);
+    border-bottom: 1px solid #333;
+}
+
+.etiqueta {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 12px;
+    color: #ff333d;
+    letter-spacing: 4px;
+}
+
+h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 8vw, 82px);
+    letter-spacing: 3px;
+    margin: 12px 0;
+}
+
+h1 span {
+    color: #e50914;
+}
+
+.portada p {
+    font-size: 21px;
+    max-width: 760px;
+    margin: auto;
+    color: #ddd;
+}
+
+main {
+    width: 90%;
+    max-width: 1150px;
+    margin: 50px auto;
+}
+
+.seccion-titulo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.intro {
+    color: #ccc;
+    font-size: 19px;
+    margin-bottom: 25px;
+}
+
+.aviso {
+    background: #251719;
+    border-left: 4px solid #e50914;
+    padding: 17px 20px;
+    margin: 25px 0 35px;
+    color: #eee;
+    font-size: 17px;
+}
+
+.tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 22px;
+    margin: 28px 0 45px;
+}
+
+.tarjeta {
+    background: #1b1b1b;
+    border: 1px solid #383838;
+    border-top: 4px solid #e50914;
+    padding: 25px 22px;
+    transition: .3s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-4px);
+    border-color: #e50914;
+}
+
+.numero {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+    color: #e50914;
+    margin-bottom: 10px;
+}
+
+.tarjeta h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.tarjeta p {
+    font-size: 18px;
+    color: #ddd;
+}
+
+.tarjeta ul {
+    padding-left: 20px;
+    margin-top: 12px;
+    color: #ddd;
+    font-size: 17px;
+}
+
+.lista-requisitos {
+    list-style: none;
+    margin-top: 18px;
+}
+
+.lista-requisitos li {
+    background: #1b1b1b;
+    border-left: 3px solid #e50914;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+    font-size: 18px;
+}
+
+.lista-requisitos li strong {
+    color: #ff454d;
+}
+
+.dos-columnas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 25px;
+    margin: 25px 0 45px;
+}
+
+.informacion {
+    background: #191919;
+    padding: 25px;
+    border: 1px solid #333;
+    border-left: 4px solid #e50914;
+}
+
+.informacion h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: #ff333d;
+    margin-bottom: 12px;
+}
+
+.informacion p,
+.informacion li {
+    font-size: 18px;
+    color: #ddd;
+}
+
+.informacion ul {
+    padding-left: 20px;
+}
+
+.boton {
+    display: inline-block;
+    background: #e50914;
+    color: white;
+    text-decoration: none;
+    padding: 14px 23px;
+    margin: 8px 6px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    transition: .3s;
+}
+
+.boton:hover {
+    background: white;
+    color: #e50914;
+}
+
+.centrado {
+    text-align: center;
+    margin: 50px 0 25px;
+}
+
+.centrado p {
+    color: #ccc;
+    font-size: 19px;
+}
+
+.nota {
+    color: #aaa;
+    font-size: 16px;
+    margin: 30px 0;
+}
+
+footer {
+    background: #080808;
+    border-top: 3px solid #e50914;
+    padding: 25px 15px;
+    text-align: center;
+    color: #aaa;
+    font-size: 16px;
+}
+
+footer strong {
+    color: #e50914;
+}
+
+@media (max-width: 650px) {
+    header {
+        justify-content: center;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    .portada {
+        padding: 50px 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="marca">
+        <img src="logospartan.jpg" alt="Logo Spartan Taekwondo">
+        <h2>SPARTAN R.G.P.</h2>
+    </div>
+
+    <nav>
+    <a href="inicio.html">INICIO</a>
+    <a href="nosotros.html">NOSOTROS</a>
+    <a href="clases.html">CLASES</a>
+    <a href="horarios.html">HORARIOS</a>
+    <a href="requisitos.html">REQUISITOS</a>
+    <a href="galeria.html">GALERÍA</a>
+    <a href="contacto.html">CONTACTO</a>
+    </nav>
+</header>
+
+<section class="portada">
+    <span class="etiqueta">TU CAMINO COMIENZA AQUÍ</span>
+    <h1>REQUISITOS DE <span>INSCRIPCIÓN</span></h1>
+    <p>Prepárate para comenzar a entrenar con disciplina, respeto y compromiso en Spartan R.G.P. de Oruro.</p>
+</section>
+
+<main>
+
+    <section>
+        <h2 class="seccion-titulo">¿QUÉ NECESITAS PARA INSCRIBIRTE?</h2>
+        <p class="intro">
+            Antes de comenzar las clases, es importante contar con los datos
+            necesarios para registrar al deportista y organizar su participación.
+        </p>
+
+        <div class="aviso">
+            <strong>Atención:</strong> esta lista es orientativa para la página web.
+            Consulta con Spartan R.G.P. cuáles son los documentos y pagos
+            que realmente solicita al momento de la inscripción.
+        </div>
+
+        <div class="tarjetas">
+
+            <article class="tarjeta">
+                <div class="numero">01</div>
+                <h3>DATOS PERSONALES</h3>
+                <p>Información básica para el registro del alumno.</p>
+                <ul>
+                    <li>Nombre completo.</li>
+                    <li>Fecha de nacimiento.</li>
+                    <li>Número de carnet de identidad.</li>
+                    <li>Teléfono de contacto.</li>
+                </ul>
+            </article>
+
+            <article class="tarjeta">
+                <div class="numero">02</div>
+                <h3>PADRE, MADRE O TUTOR</h3>
+                <p>Para los deportistas menores de edad.</p>
+                <ul>
+                    <li>Nombre del representante.</li>
+                    <li>Número de contacto.</li>
+                    <li>Autorización del representante.</li>
+                    <li>Persona de referencia para emergencias.</li>
+                </ul>
+            </article>
+
+            <article class="tarjeta">
+                <div class="numero">03</div>
+                <h3>REGISTRO Y PAGOS</h3>
+                <p>Completar el proceso de inscripción establecido por la academia.</p>
+                <ul>
+                    <li>Ficha de inscripción, si corresponde.</li>
+                    <li>Consultar costo de inscripción.</li>
+                    <li>Consultar mensualidad vigente.</li>
+                    <li>Solicitar información sobre comprobantes de pago.</li>
+                </ul>
+            </article>
+
+        </div>
+    </section>
+
+    <section>
+        <h2 class="seccion-titulo">¿QUÉ LLEVAR A TU PRIMERA CLASE?</h2>
+        <p class="intro">
+            Si nunca has practicado Taekwondo, puedes consultar qué ropa
+            utilizar antes de comprar el uniforme.
+        </p>
+
+        <ul class="lista-requisitos">
+            <li><strong>Ropa deportiva:</strong> cómoda y adecuada para moverse libremente durante la primera práctica.</li>
+            <li><strong>Agua:</strong> una botella personal para mantenerse hidratado.</li>
+            <li><strong>Higiene:</strong> asistir con ropa limpia y uñas cortas para una práctica segura.</li>
+            <li><strong>Uniforme dobok:</strong> consultar con el instructor cuándo adquirirlo y qué modelo utilizar.</li>
+            <li><strong>Puntualidad:</strong> llegar con anticipación para prepararse antes de comenzar.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2 class="seccion-titulo">REQUISITOS SEGÚN TU OBJETIVO</h2>
+
+        <div class="dos-columnas">
+
+            <article class="informacion">
+                <h3>PARA ENTRENAR</h3>
+                <ul>
+                    <li>Completar el registro solicitado por la academia.</li>
+                    <li>Conocer el horario asignado.</li>
+                    <li>Seguir las instrucciones del entrenador.</li>
+                    <li>Respetar a compañeros e instructores.</li>
+                    <li>Consultar si se necesita autorización familiar o información médica.</li>
+                </ul>
+            </article>
+
+            <article class="informacion">
+                <h3>PARA PARTICIPAR EN CAMPEONATOS</h3>
+                <ul>
+                    <li>Estar registrado con el equipo correspondiente.</li>
+                    <li>Contar con la documentación solicitada en la convocatoria.</li>
+                    <li>Presentar la acreditación de grado cuando corresponda.</li>
+                    <li>Utilizar el uniforme y las protecciones exigidas.</li>
+                    <li>Completar la inscripción y cumplir las indicaciones de la organización.</li>
+                </ul>
+            </article>
+
+        </div>
+
+        <p class="nota">
+            Las competencias pueden exigir documentación adicional, certificados
+            y equipo específico. Los requisitos definitivos dependen de cada convocatoria.
+        </p>
+    </section>
+
+    <section class="centrado">
+        <h2 class="seccion-titulo">¿LISTO PARA COMENZAR?</h2>
+        <p>Resuelve tus dudas antes de inscribirte y consulta los horarios disponibles.</p>
+
+        <a class="boton" href="horarios.html">VER HORARIOS Y PRECIOS</a>
+        <a class="boton" href="clases.html">CONOCER LAS CLASES</a>
+        <a class="boton" href="contacto.html">CONSULTAR A SPARTAN</a>
+    </section>
+
+</main>
+
+<footer>
+    <p><strong>SPARTAN R.G.P.</strong> · Taekwondo · Oruro, Bolivia</p>
+    <p>Disciplina para la vida, preparación para superar tus límites.</p>
+</footer>
+
+</body>
+</html>

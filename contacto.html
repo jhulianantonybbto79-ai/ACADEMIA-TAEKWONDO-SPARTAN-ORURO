@@ -1,0 +1,606 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contacto y Ubicación | Spartan R.G.P.</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@500;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --rojo: #e50914;
+            --negro: #080808;
+            --gris: #151515;
+            --blanco: #ffffff;
+        }
+
+        body {
+            background: var(--negro);
+            color: var(--blanco);
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 19px;
+            line-height: 1.5;
+        }
+
+        header {
+            background: #050505;
+            border-bottom: 3px solid var(--rojo);
+            padding: 15px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .marca {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .marca img {
+            width: 75px;
+            height: 75px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .marca h2 {
+            color: var(--rojo);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 22px;
+        }
+
+        .marca p {
+            color: #ccc;
+            font-size: 15px;
+        }
+
+        nav {
+            display: flex;
+            gap: 7px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 11px;
+            padding: 11px 9px;
+            border: 1px solid #333;
+            transition: .3s;
+        }
+
+        nav a:hover,
+        nav a.activo {
+            background: var(--rojo);
+            border-color: var(--rojo);
+        }
+
+        .portada {
+            text-align: center;
+            padding: 75px 20px;
+            background:
+                linear-gradient(rgba(0,0,0,.78), rgba(0,0,0,.92)),
+                url('https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=1600&q=80') center/cover;
+            border-bottom: 1px solid #333;
+        }
+
+        .etiqueta {
+            color: var(--rojo);
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 3px;
+            font-size: 13px;
+        }
+
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(42px, 7vw, 76px);
+            margin: 15px 0;
+            letter-spacing: 2px;
+            line-height: 1.1;
+        }
+
+        h1 span,
+        .titulo-seccion span {
+            color: var(--rojo);
+        }
+
+        .portada p.descripcion {
+            max-width: 720px;
+            margin: 15px auto 0;
+            color: #ddd;
+            font-size: 21px;
+        }
+
+        .contenedor {
+            max-width: 1150px;
+            width: 90%;
+            margin: 45px auto;
+        }
+
+        .titulo-seccion {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 38px;
+            margin-bottom: 22px;
+            border-left: 5px solid var(--rojo);
+            padding-left: 15px;
+            line-height: 1.2;
+        }
+
+        .tarjetas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+        }
+
+        .tarjeta {
+            background: var(--gris);
+            border: 1px solid #303030;
+            padding: 25px;
+            border-radius: 8px;
+            transition: .3s;
+        }
+
+        .tarjeta:hover {
+            border-color: var(--rojo);
+            transform: translateY(-4px);
+        }
+
+        .icono {
+            color: var(--rojo);
+            font-size: 34px;
+            margin-bottom: 15px;
+        }
+
+        .tarjeta h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        .tarjeta p {
+            color: #ccc;
+            margin-bottom: 15px;
+        }
+
+        .direccion {
+            color: white !important;
+            font-size: 21px;
+            font-weight: 700;
+        }
+
+        .boton {
+            display: inline-block;
+            padding: 12px 18px;
+            margin-top: 8px;
+            background: var(--rojo);
+            color: white;
+            text-decoration: none;
+            border: 1px solid var(--rojo);
+            border-radius: 4px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 11px;
+            text-align: center;
+            transition: .3s;
+        }
+
+        .boton:hover {
+            background: transparent;
+            color: white;
+        }
+
+        .boton-secundario {
+            background: transparent;
+            border-color: #555;
+        }
+
+        .croquis-contenedor {
+            background: var(--gris);
+            padding: 18px;
+            border: 1px solid #333;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .croquis {
+            display: block;
+            width: 100%;
+            max-width: 900px;
+            height: 430px;
+            object-fit: contain;
+            margin: 0 auto;
+            background: white;
+            border-radius: 5px;
+        }
+
+        .texto-croquis {
+            color: #ddd;
+            margin: 18px auto 10px;
+        }
+
+        .redes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .red-social {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            color: white;
+            background: var(--gris);
+            border: 1px solid #333;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        .red-social:hover {
+            border-color: var(--rojo);
+            transform: translateY(-3px);
+        }
+
+        .red-social i {
+            color: var(--rojo);
+            font-size: 30px;
+            min-width: 35px;
+            text-align: center;
+        }
+
+        .red-social strong {
+            display: block;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        .red-social small {
+            color: #bbb;
+            font-size: 15px;
+        }
+
+        .aviso {
+            background: #1b1010;
+            border-left: 4px solid var(--rojo);
+            padding: 18px;
+            margin-top: 20px;
+            color: #ddd;
+        }
+
+        .final {
+            text-align: center;
+            padding: 45px 20px;
+            background: #050505;
+            border-top: 3px solid var(--rojo);
+        }
+
+        .final h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .final h2 span {
+            color: var(--rojo);
+        }
+
+        .final p {
+            color: #bbb;
+            margin: 8px 0;
+        }
+
+        .volver {
+            display: inline-block;
+            color: white;
+            margin-top: 18px;
+            text-decoration: none;
+            border-bottom: 1px solid var(--rojo);
+            padding-bottom: 4px;
+        }
+
+        @media (max-width: 700px) {
+            header {
+                justify-content: center;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            nav a {
+                font-size: 10px;
+            }
+
+            .portada {
+                padding: 55px 18px;
+            }
+
+            .croquis {
+                height: 300px;
+            }
+
+            .titulo-seccion {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="marca">
+        <img src="logospartan.jpg" alt="Logo Spartan R.G.P.">
+
+        <div>
+            <h2>SPARTAN R.G.P.</h2>
+            <p>Disciplina · Dedicación · Superación</p>
+        </div>
+    </div>
+
+    <nav>
+    <a href="inicio.html">INICIO</a>
+    <a href="nosotros.html">NOSOTROS</a>
+    <a href="clases.html">CLASES</a>
+    <a href="horarios.html">HORARIOS</a>
+    <a href="requisitos.html">REQUISITOS</a>
+    <a href="galeria.html">GALERÍA</a>
+    <a href="contacto.html">CONTACTO</a>
+    </nav>
+</header>
+
+<section class="portada">
+    <p class="etiqueta">TEAM SPARTAN R.G.P. · ORURO, BOLIVIA</p>
+
+    <h1>CONTACTO Y <span>UBICACIÓN</span></h1>
+
+    <p class="descripcion">
+        ¿Quieres formar parte del equipo Spartan?
+        Comunícate con nosotros, consulta los horarios
+        y encuentra nuestra ubicación.
+    </p>
+</section>
+
+<main>
+
+    <!-- DATOS DE CONTACTO -->
+
+    <section class="contenedor">
+        <h2 class="titulo-seccion">
+            CANALES DE <span>CONTACTO</span>
+        </h2>
+
+        <div class="tarjetas">
+
+            <article class="tarjeta">
+                <div class="icono">
+                    <i class="fa-solid fa-phone"></i>
+                </div>
+
+                <h3>TELÉFONO</h3>
+
+                <p>
+                    Comunícate con el club para solicitar información
+                    sobre las clases y las inscripciones.
+                </p>
+
+                <a class="boton" href="tel:+59178605127">
+                    <i class="fa-solid fa-phone"></i>
+                    LLAMAR AL CLUB
+                </a>
+            </article>
+
+            <article class="tarjeta">
+                <div class="icono">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </div>
+
+                <h3>WHATSAPP</h3>
+
+                <p>
+                    Consulta sobre categorías, horarios,
+                    precios y requisitos de inscripción.
+                </p>
+
+                <a class="boton"
+                   href="https://wa.me/59178605127"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    ABRIR WHATSAPP
+                </a>
+            </article>
+
+            <article class="tarjeta">
+                <div class="icono">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+
+                <h3>DIRECCIÓN</h3>
+
+                <p class="direccion">
+                    Calle 4, zona Mercado Kantuta
+                </p>
+
+                <p>
+                    Oruro, Bolivia. Utiliza el croquis y
+                    consulta la ruta antes de visitarnos.
+                </p>
+
+                <a class="boton"
+                   href="https://www.google.com/maps/search/?api=1&query=Taekwondo+Spartan+Oruro+Mercado+Kantuta+Calle+4"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                    CÓMO LLEGAR
+                </a>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- CROQUIS DE UBICACIÓN -->
+
+    <section class="contenedor">
+        <h2 class="titulo-seccion">
+            NUESTRO <span>CROQUIS</span>
+        </h2>
+
+        <div class="croquis-contenedor">
+
+            <img
+                class="croquis"
+                src="croquis.jpg"
+                alt="Croquis de ubicación de Taekwondo Spartan R.G.P."
+            >
+
+            <p class="texto-croquis">
+                Observa el croquis como referencia para encontrar
+                la academia Spartan R.G.P. en Oruro.
+            </p>
+
+            <a
+                class="boton"
+                href="https://www.google.com/maps/search/?api=1&query=Taekwondo+Spartan+Oruro+Mercado+Kantuta+Calle+4"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <i class="fa-solid fa-location-dot"></i>
+                VER DIRECCIÓN EN GOOGLE MAPS
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- REDES SOCIALES -->
+
+    <section class="contenedor">
+        <h2 class="titulo-seccion">
+            NUESTRAS <span>REDES SOCIALES</span>
+        </h2>
+
+        <div class="redes">
+
+            <a class="red-social"
+               href="https://www.localgymsandfitness.com/BO/Oruro/102523411433146/Club-Spartan-Oruro"
+               target="_blank"
+               rel="noopener noreferrer">
+
+                <i class="fa-brands fa-facebook"></i>
+
+                <div>
+                    <strong>PÁGINA PÚBLICA</strong>
+                    <small>Ver publicaciones e información del club</small>
+                </div>
+            </a>
+
+            <a class="red-social"
+               href="https://wa.me/59178605127"
+               target="_blank"
+               rel="noopener noreferrer">
+
+                <i class="fa-brands fa-whatsapp"></i>
+
+                <div>
+                    <strong>WHATSAPP</strong>
+                    <small>Enviar una consulta</small>
+                </div>
+            </a>
+
+            <a class="red-social"
+               href="https://www.google.com/maps/search/?api=1&query=Taekwondo+Spartan+Oruro+Mercado+Kantuta"
+               target="_blank"
+               rel="noopener noreferrer">
+
+                <i class="fa-brands fa-google"></i>
+
+                <div>
+                    <strong>GOOGLE MAPS</strong>
+                    <small>Consultar ubicación y rutas</small>
+                </div>
+            </a>
+
+        </div>
+
+        <div class="aviso">
+            <i class="fa-solid fa-circle-info"></i>
+
+            <strong> Información importante:</strong>
+            Todo cinturón negro fue alguna vez un principiante que decidió intentarlo. 🥋🔥
+Si buscas un espacio para liberar el estrés, ganar seguridad y descubrir de todo lo que eres capaz, este es tu lugar. No importa tu edad ni tu experiencia previa; cada entrenamiento es una oportunidad para fortalecer tu cuerpo, enfocar tu mente y ser un poco mejor que ayer. ¡Atrévete a empezar tu camino!
+        </div>
+    </section>
+
+    <!-- INFORMACIÓN PARA VISITANTES -->
+
+    <section class="contenedor">
+        <h2 class="titulo-seccion">
+            ANTES DE <span>VISITARNOS</span>
+        </h2>
+
+        <div class="tarjeta">
+
+            <p>
+                Antes de asistir, recomendamos comunicarte con el club
+                para confirmar los horarios de entrenamiento, la categoría
+                correspondiente a tu edad, los requisitos de inscripción
+                y los costos vigentes.
+            </p>
+
+            <a class="boton" href="tel:+59178605127">
+                <i class="fa-solid fa-phone"></i>
+                LLAMAR AL CLUB
+            </a>
+
+            <a class="boton boton-secundario"
+               href="horarios.html">
+                <i class="fa-solid fa-clock"></i>
+                VER HORARIOS
+            </a>
+
+            <a class="boton boton-secundario"
+               href="requisitos.html">
+                <i class="fa-solid fa-list-check"></i>
+                VER REQUISITOS
+            </a>
+
+        </div>
+    </section>
+
+</main>
+
+<footer class="final">
+    <h2>SPARTAN <span>R.G.P.</span></h2>
+
+    <p>Taekwondo · Oruro, Bolivia</p>
+    <p>Disciplina, respeto y perseverancia.</p>
+
+    <a class="volver" href="inicio.html">
+        <i class="fa-solid fa-arrow-left"></i>
+        VOLVER AL INICIO
+    </a>
+
+    <p style="margin-top:25px; font-size:14px;">
+        © 2026 Spartan R.G.P. | Página informativa
+    </p>
+</footer>
+
+</body>
+</html>
